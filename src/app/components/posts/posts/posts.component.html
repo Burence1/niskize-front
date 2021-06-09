@@ -1,1 +1,33 @@
-<p>posts works!</p>
+<div class="row">
+
+  <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" *ngFor="let post of posts">
+    <!--Card-->
+    <div class="card">
+
+      <!--Card image-->
+      <div class="view overlay hm-white-slight">
+        <img src="http://res.cloudinary.com/burens/{{post.image}}" class="img-fluid" alt="">
+        <a href="#!">
+          <div class="mask"></div>
+        </a>
+      </div>
+      <!--/.Card image-->
+
+      <!--Card content-->
+      <div class="card-block">
+        <!--Title-->
+        <h4 class="card-title">{{post.title}}</h4>
+        <h5 class="text-muted">By: {{post.first_name|slice:0:8}}</h5>
+        <!--Text-->
+        <p class="card-text">{{post.content}}</p>
+        <p>{{post.pub_date|date}}</p>
+        <div class="read-more">
+          <a href="#!" class="btn btn-brown">Read more</a>
+        </div>
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+  </div>
+</div>

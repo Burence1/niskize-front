@@ -1,4 +1,7 @@
+import { Posts } from './../../../interfaces/posts';
+import { PostsService } from './../../../services/posts/posts.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  posts:Posts[]=[];
+  constructor(private postsservice:PostsService) { }
 
-  ngOnInit(): void {
+  findPosts() {
+    this.postsservice.fetchAll().subscribe(
+      (res) => {
+        this.posts = res
+
+      }, error => {
+        console.error(error)
+      }
+    );
   }
-
+  ngOnInit(): void {
+    this.findPosts()
+  }
 }

@@ -25,8 +25,6 @@ export class ArticlesComponent implements OnInit {
       }
     );
   }
-
-
   ngOnInit(): void {
     this.findArticles()
   }
