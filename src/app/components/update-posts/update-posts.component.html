@@ -25,18 +25,18 @@
   <div class="row mt-5">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <div class="row" *ngIf="updatearticle.id">
-        <h1 class="text-center mt-5" style="text-transform: capitalize;">{{updatearticle.username}}'s Article</h1>
+      <div class="row" *ngIf="updatepost.id">
+        <h1 class="text-center mt-5" style="text-transform: capitalize;">{{updatepost.first_name}}'s Post</h1>
         <div class=" wow fadeIn" data-wow-delay="0.2s">
           <!--Card-->
           <div class="card">
             <div class="card-header">
-              <h3 style="text-align: center;"><strong>{{updatearticle.title}}</strong></h3>
+              <h3 style="text-align: center;"><strong>{{updatepost.title}}</strong></h3>
             </div>
 
             <!--Card image-->
             <div class="view overlay hm-white-slight">
-              <img src="http://res.cloudinary.com/burens/{{ updatearticle.image }}" class="card-img-top" id="update"
+              <img src="http://res.cloudinary.com/burens/{{ updatepost.image }}" class="card-img-top" id="update"
                 alt="upload" style="height: 40rem;object-fit: cover;">
               <a href="#!">
                 <div class="mask"></div>
@@ -44,16 +44,24 @@
             </div>
             <!--/.Card image-->
             <div class="card-body">
-              <p>{{updatearticle.content}}</p>
+              <p>{{updatepost.content}}</p>
             </div>
+            <p>{{updatepost.comment}}</p>
 
             <!--Card content-->
             <div class="card-block">
               <!--Title-->
-              <div class="card-footer" style="padding: 1em;">
-                <div class="date">Published On: {{updatearticle.pub_date|date}}</div>
-                <button (click)="deleteArticle()" style="border: transparent;"><i class="fa fa-trash" aria-hidden="true"></i></button> 
-                <div class="author">Authored By: {{updatearticle.username}}</div>
+              <div class="card-footer" style="padding: 0;">
+                <form>
+                  
+                  <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="updatepost.comment" name="comment"
+                      style="font-size: 1.2rem; border: 0;">
+                    <div class="input-group-btn">
+                      <button class="btn" type="submit" style="font-size: 1.2rem;" (click)="updatePost()"> Post</button>
+                    </div>
+                  </div>
+                </form>
               </div>
               <!--/.Card content-->
 

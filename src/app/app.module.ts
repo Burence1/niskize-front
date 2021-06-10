@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar/navbar.component';
 import { UpdateArticlesComponent } from './components/update-articles/update-articles.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UpdatePostsComponent } from './components/update-posts/update-posts.component';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     NavbarComponent,
     UpdateArticlesComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdatePostsComponent
   ],
   imports: [
     BrowserModule,

@@ -17,3 +17,11 @@
   margin-right: 0%;
   border: none;
 }
+
+ul {
+  list-style: none;
+}
+
+ul li:before {
+  content: '✓';
+}
