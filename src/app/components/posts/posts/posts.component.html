@@ -40,15 +40,15 @@
     <div class="col-md-9">
       <div class="row">
         <div class="col-md-4" *ngFor="let post of posts">
-          <div class="card shadow mb-5 bg-white rounded form-card"
-            style="width: 18rem;" id="article-card">
+          <div class="card shadow mb-5 bg-white rounded form-card" style="width: 18rem;" id="article-card">
             <div class="header">
               <p class="text-center"><strong>{{post.title| titlecase}}</strong></p>
             </div>
             <img class="img-fluid" src="http://res.cloudinary.com/burens/{{ post.image }}" id="article-img" alt="...">
             <time id="img-pos" style="color: gray;">{{post.pub_date|date}}</time>
             <div class="card__share">
-              <a id="share" class="share-icon"  [routerLink]="['/post', post.id]" style="background-color: rgb(245, 82, 7);color: whitesmoke;"><i class="fas fa-share"></i></a>
+              <a id="share" class="share-icon" [routerLink]="['/post', post.id]"
+                style="background-color: orange;color: whitesmoke;"><i class="fas fa-share"></i></a>
             </div>
             <div class="card-body">
               <div class="details-meta">
@@ -72,52 +72,50 @@
       </ul>
     </div>
   </div>
-  </div>
-  
-  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-    tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          “What mental health needs is more sunlight, more candor, and more unashamed conversation.”<br> <strong>Glenn
-            Close</strong>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"
-            style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add article</button>
-        </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        “What mental health needs is more sunlight, more candor, and more unashamed conversation.”<br> <strong>Glenn
+          Close</strong>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"
+          style="background-color: orange;color: whitesmoke;">Add article</button>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-    tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Article</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="postsform" (ngSubmit)="onSubmit(postsform.value);postsform.reset()" method="POST">
-            <input type="number" class="form-control" ngModel placeholder="post author" formControlName="user"><br>
-            <input type="text" class="form-control" ngModel placeholder="post title" formControlName="title"><br>
-            <input type="text" class="form-control" ngModel placeholder="post content" formControlName="content"><br>
-            <input type="text" class="form-control" ngModel placeholder="post image" formControlName="image"><br>
-            <input type="text" class="form-control" ngModel placeholder="post category" formControlName="category"><br>
-            <button class="btn btn-sm mt-4" type="submit" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add Post</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal"
-            style="background-color: rgb(245, 82, 7);color: whitesmoke;">Back to first</button>
-        </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Article</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="postsform" (ngSubmit)="onSubmit(postsform.value);postsform.reset()" method="POST">
+          <input type="number" class="form-control" ngModel placeholder="post author" formControlName="user"><br>
+          <input type="text" class="form-control" ngModel placeholder="post title" formControlName="title"><br>
+          <input type="text" class="form-control" ngModel placeholder="post content" formControlName="content"><br>
+          <input type="text" class="form-control" ngModel placeholder="post image" formControlName="image"><br>
+          <input type="text" class="form-control" ngModel placeholder="post category" formControlName="category"><br>
+          <button class="btn btn-sm mt-4" type="submit" style="background-color: orange;color: whitesmoke;">Add
+            Post</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal"
+          style="background-color: orange;color: whitesmoke;">Back to first</button>
       </div>
     </div>
   </div>
-
-
-
+</div>

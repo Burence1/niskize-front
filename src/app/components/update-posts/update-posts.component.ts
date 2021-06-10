@@ -12,12 +12,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdatePostsComponent implements OnInit {
 
   updatepost: Posts = {
-    // title: '',
-    // image: '',
-    // content: '',
+    title: '',
+    image: '',
+    content: '',
     comment: '',
-    // first_name:'',
-    // pub_date:'',
+    user:'',
+    pub_date:'',
   };
 
   commentForm = new FormGroup({
@@ -74,5 +74,4 @@ export class UpdatePostsComponent implements OnInit {
     })
     console.warn(post)
   }
-
 }

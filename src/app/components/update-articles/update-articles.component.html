@@ -22,51 +22,44 @@
       </button>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="row" *ngIf="updatearticle.id">
-        <h1 class="text-center mt-5" style="text-transform: capitalize;">{{updatearticle.username}}'s Article</h1>
-        <div class=" wow fadeIn" data-wow-delay="0.2s">
-          <!--Card-->
-          <div class="card">
-            <div class="card-header">
-              <h3 style="text-align: center;"><strong>{{updatearticle.title}}</strong></h3>
-            </div>
 
-            <!--Card image-->
-            <div class="view overlay hm-white-slight">
-              <img src="http://res.cloudinary.com/burens/{{ updatearticle.image }}" class="card-img-top" id="update"
-                alt="upload" style="height: 40rem;object-fit: cover;">
-              <a href="#!">
-                <div class="mask"></div>
-              </a>
-            </div>
-            <!--/.Card image-->
-            <div class="card-body">
-              <p>{{updatearticle.content}}</p>
-            </div>
-            <!--Card content-->
-            <div class="card-block">
-              <!--Title-->
-              <div class="card-footer" style="padding: 1em;">
-                <div class="details-meta">
-                  <i class="bi bi-vector-pen" style="color: rgb(245, 82, 7);"></i> {{updatearticle.username| titlecase}}&nbsp;<a id="img-loc" style="color: #333;"></a>
-                  <time id="img-pos">{{updatearticle.pub_date|date}}</time>
-                </div>
-                <button (click)="deleteArticle()" style="border: transparent;" ><i class="fa fa-trash" aria-hidden="true"></i></button> 
-                <a data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" style="color: rgb(245, 82, 7);"><i class="bi bi-pencil-square"></i></a>
-              </div>
-              <!--/.Card content-->
-            </div>
-            <!--/.Card-->
+  <div class="row">
+    <div class="col-md-5">
+      <h2 class="text-center mt-5" style="float: right;">
+        <h3><strong>MENTAL HEALTH ARTICLE</strong></h3>
+      </h2>
+    </div>
+    <div class="col-md-1">
+      <div class="line"></div>
+    </div>
+    <div class="col-md-6 col-sm-1"><a data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" role="button">
+        <h2 class="text-center mt-5" style="float: left;color: black;"><i class="bi bi-pencil-square"></i> Edit Article
+        </h2>
+      </a>
+      <a href="">
+      <h2 class="text-center mt-5" (click)="deleteArticle()" style="color: black;text-decoration: none;"><i
+          class="bi bi-trash-fill"></i>
+      </h2></a>
+    </div>
+  </div>
+  
+  <div class="row" *ngIf="updatearticle.id">
+    <section>
+      <div class="container">
+        <div class="content">
+          <div class="content-img">
+            <img src="http://res.cloudinary.com/burens/{{ updatearticle.image }}" class="card-img-top" id="update"
+              alt="upload" style="height: 40rem;object-fit: cover;">
+          </div>
+          <div class="content-text">
+            <h2 class="content-title">{{updatearticle.title|titlecase}}</h2>
+            <h4 class="content-subtitle">{{updatearticle.pub_date|date}}</h4>
+            <p class="content-paragraph">{{updatearticle.content}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-2"></div>
-    </div>
+    </section>
   </div>
-</div>
 
 
 <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"

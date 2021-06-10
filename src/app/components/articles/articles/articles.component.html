@@ -41,7 +41,7 @@
             <time id="img-pos" style="color: gray;">{{article.pub_date|date}}</time>
             <div class="card__share">
               <a id="share" class="share-icon"  [routerLink]="['/article', article.id]"
-                style="background-color: rgb(245, 82, 7);color: whitesmoke;"><i class="fas fa-share"></i></a>
+                style="background-color: orange;color: whitesmoke;"><i class="fas fa-share"></i></a>
             </div>
             <div class="card-body">
               <div class="details-meta">
@@ -80,7 +80,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-          data-bs-dismiss="modal" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add article</button>
+          data-bs-dismiss="modal" style="background-color:orange;color: whitesmoke;">Add article</button>
       </div>
     </div>
   </div>
@@ -101,12 +101,12 @@
           <input type="text" class="form-control" ngModel placeholder="article content" formControlName="content"><br>
           <input type="text" class="form-control" ngModel placeholder="article image" formControlName="image"><br>
           <input type="text" class="form-control" ngModel placeholder="article category" formControlName="category"><br>
-          <button class="btn btn-sm mt-4" type="submit" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add Article</button>
+          <button class="btn btn-sm mt-4" type="submit" style="background-color:orange;color: whitesmoke;">Add Article</button>
         </form>
       </div>
       <div class="modal-footer">
         <button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
-          data-bs-dismiss="modal" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Back to first</button>
+          data-bs-dismiss="modal" style="background-color: orange;color: whitesmoke;">Back to first</button>
       </div>
     </div>
   </div>

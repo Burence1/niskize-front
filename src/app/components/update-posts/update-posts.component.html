@@ -22,65 +22,63 @@
       </button>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="row" *ngIf="updatepost.id">
-        <h1 class="text-center mt-5" style="text-transform: capitalize;">{{updatepost.first_name}}'s Post</h1>
-        <div class=" wow fadeIn" data-wow-delay="0.2s">
-          <!--Card-->
-          <div class="card">
-            <div class="card-header">
-              <h3 style="text-align: center;"><strong>{{updatepost.title}}</strong></h3>
-            </div>
 
-            <!--Card image-->
-            <div class="view overlay hm-white-slight">
-              <img src="http://res.cloudinary.com/burens/{{ updatepost.image }}" class="card-img-top" id="update"
-                alt="upload" style="height: 40rem;object-fit: cover;">
-              <a href="#!">
-                <div class="mask"></div>
-              </a>
-            </div>
-            <!--/.Card image-->
-            <div class="card-body">
-              <p>{{updatepost.content}}</p>
-            </div>
-            <p>{{updatepost.comment}}</p>
+  <div class="row">
+    <div class="col-md-5">
+      <h2 class="text-center mt-5" style="float: right;">
+        <h3><strong>PERSONAL EXPERIENCE</strong></h3>
+      </h2>
+    </div>
+    <div class="col-md-1">
+      <div class="line"></div>
+    </div>
+    <div class="col-md-6 col-sm-1"><a data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+        <h2 class="text-center mt-5" style="float: left;color: black;"><i class="bi bi-pencil-square"></i> Edit Post
+        </h2></a>
+        <h2 class="text-center mt-5" (click)="deletePost()" style="color: black;text-decoration: none;"><i class="bi bi-trash-fill"></i>
+        </h2>
+      </div>
+  </div>
 
-            <!--Card content-->
-            <div class="card-block">
-              <!--Title-->
-              <div class="card-footer" style="padding: 0;">
-                <form>
-                  
-                  <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="updatepost.comment" name="comment"
-                      style="font-size: 1.2rem; border: 0;">
-                    <div class="input-group-btn">
-                      <button class="btn" type="submit" style="font-size: 1.2rem;" (click)="updatePost()"> Post</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!--/.Card content-->
-
-            </div>
-            <!--/.Card-->
+  <div class="row" *ngIf="updatepost.id">
+    <section>
+      <div class="container">
+        <div class="content">
+          <div class="content-img">
+            <img src="http://res.cloudinary.com/burens/{{ updatepost.image }}" class="card-img-top" id="update"
+              alt="upload" style="height: 40rem;object-fit: cover;">
+          </div>
+          <div class="content-text">
+            <h2 class="content-title">{{updatepost.title|titlecase}}</h2>
+            <h4 class="content-subtitle">{{updatepost.pub_date|date}}</h4>
+            <p class="content-paragraph">{{updatepost.content}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-2"></div>
-    </div>
+    </section>
   </div>
-</div>
 
-<!-- <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  <div class="row mt-5">
+
+    <form>
+
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="updatepost.comment" name="comment"
+          style="font-size: 1.2rem; border: 0;">
+        <div class="input-group-btn">
+          <button class="btn" type="submit" style="font-size: 1.2rem;" (click)="updatePost()"> Post</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
   tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel">Edit</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -88,8 +86,8 @@
           Close</strong>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-          data-bs-dismiss="modal">Add article</button>
+        <button class="btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"
+          style="background-color: orange;color: whitesmoke;">Edit Post</button>
       </div>
     </div>
   </div>
@@ -102,36 +100,20 @@
         <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Article</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body"> -->
-        <!-- <form method="POST"> -->
-          <!-- <div >
-            <input type="checkbox" id="vehicle1" name="{{article.user}}" value="{{article.user}}">
-            <label for="users">{{article.user}}</label>
-          </div> -->
-          <!-- <select id="users" name="users" *ngFor="let article of articles">
-            <option value="{{article.user}}">{{article.user}}</option> -->
-
-
-          <!-- <div class="dropdown" *ngFor="let article of articles">
-            <button class="dropbtn">Dropdown</button>
-            <div class="dropdown-content">
-              <a href="{{article.username}}">{{article.username}}</a>
-              </div>
-          </div> -->
-
-          <!-- <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
-          <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
-          <input type="text" class="form-control" ngModel placeholder="article content" formControlName="content"><br>
-          <input type="text" class="form-control" ngModel placeholder="article image" formControlName="image"><br>
-          <input type="text" class="form-control" ngModel placeholder="article category" formControlName="category"><br>
-          <button class="btn btn-sm btn-info mt-4" type="submit">Add Article</button>
-        </form> -->
-      <!-- </div>
+      <div class="modal-body" class="modal-body" *ngIf="updatepost.id" class="edit-form">
+        <form>
+          <input type="number" class="form-control"[(ngModel)]="updatepost.user" placeholder="post author" name="user"><br>
+          <input type="text" class="form-control" [(ngModel)]="updatepost.title" placeholder="post title" name="title"><br>
+          <input type="text" class="form-control" [(ngModel)]="updatepost.content" placeholder="post content" name="content"><br>
+          <input type="text" class="form-control" [(ngModel)]="updatepost.image" placeholder="post image" name="image"><br>
+          <button class="btn btn-sm mt-4" type="submit" style="background-color: orange;color: whitesmoke;" (click)="updatePost()">Add
+            Post</button>
+        </form>
+      </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
-          data-bs-dismiss="modal">Back to first</button>
+        <button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal"
+          style="background-color: orange;color: whitesmoke;">Back to first</button>
       </div>
     </div>
   </div>
 </div>
-<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->

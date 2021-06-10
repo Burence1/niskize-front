@@ -58,8 +58,8 @@ ul li:before {
 }
 
 .line{
-  border-left: 4px solid  rgb(245, 82, 7);
-  border-color:  rgb(245, 82, 7);
+  border-left: 4px solid  orange;
+  border-color:  orange;
   height: 70px;
   margin-top: 2em;
 }
