@@ -50,18 +50,46 @@
             <div class="card-block">
               <!--Title-->
               <div class="card-footer" style="padding: 1em;">
-                <div class="date">Published On: {{updatearticle.pub_date|date}}</div>
-                <button (click)="deleteArticle()" style="border: transparent;"><i class="fa fa-trash" aria-hidden="true"></i></button> 
-                <div class="author">Authored By: {{updatearticle.username}}</div>
+                <div class="details-meta">
+                  <i class="bi bi-vector-pen" style="color: rgb(245, 82, 7);"></i> {{updatearticle.username| titlecase}}&nbsp;<a id="img-loc" style="color: #333;"></a>
+                  <time id="img-pos">{{updatearticle.pub_date|date}}</time>
+                </div>
+                <button (click)="deleteArticle()" style="border: transparent;" ><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                <a data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" style="color: rgb(245, 82, 7);"><i class="bi bi-pencil-square"></i></a>
               </div>
               <!--/.Card content-->
-
             </div>
             <!--/.Card-->
           </div>
         </div>
       </div>
       <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Article</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" *ngIf="updatearticle.id" class="edit-form">
+        <form>
+          <input type="number" class="form-control" [(ngModel)]="updatearticle.user" placeholder="article author" name="user"><br>
+          <input type="text" class="form-control"[(ngModel)]="updatearticle.title" placeholder="article title" name="title"><br>
+          <input type="text" class="form-control" [(ngModel)]="updatearticle.content" placeholder="article content" name="content"><br>
+          <input type="text" class="form-control" [(ngModel)]="updatearticle.image" placeholder="article image" name="image"><br>
+          
+          <button class="btn btn-sm mt-4" id="btn-update" style="background-color: orange;color: whitesmoke;" type="submit" (click)="updateArticle()">Update Article</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
     </div>
   </div>
 </div>

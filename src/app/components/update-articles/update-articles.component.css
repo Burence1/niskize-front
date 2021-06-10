@@ -21,3 +21,14 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.details-meta time {
+    font-size: 1rem;
+    color: #767676;
+    margin-left: 0.8rem;
+    
+}
+
+#img-pos{
+  font-size: smaller;
+}

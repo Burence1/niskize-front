@@ -19,7 +19,9 @@ export class PostsComponent implements OnInit {
     comment:new FormControl(''),
   });
 
+
   posts:Posts[]=[];
+ 
   constructor(private postsservice:PostsService) { }
 
   findPosts() {
@@ -32,6 +34,7 @@ export class PostsComponent implements OnInit {
       }
     );
   }
+  
   ngOnInit(): void {
     this.findPosts()
   }

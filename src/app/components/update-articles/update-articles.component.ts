@@ -16,7 +16,7 @@ export class UpdateArticlesComponent implements OnInit {
     title: '',
     image: '',
     content: '',
-    category: '',
+
   };
 
   articles:Articles[]=[];

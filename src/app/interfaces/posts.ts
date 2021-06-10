@@ -3,7 +3,7 @@ export interface Posts {
   first_name?:any
   title?:string
   image?:any
-  content?:any
+  content?:string
   comment?:any
   pub_date?:any
   user?:any

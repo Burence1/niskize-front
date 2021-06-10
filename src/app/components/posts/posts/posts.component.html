@@ -22,87 +22,102 @@
       </button>
     </div>
   </div>
-
-<div class="row mt-5">
-
-  <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" *ngFor="let post of posts">
-    <!--Card-->
-    <div class="card">
-
-      <!--Card image-->
-      <div class="view overlay hm-white-slight">
-        <img src="http://res.cloudinary.com/burens/{{post.image}}" class="img-fluid" alt="">
-        <a href="#!">
-          <div class="mask"></div>
-        </a>
-      </div>
-      <!--/.Card image-->
-      <!--Card content-->
-      <div class="card-block">
-        <!--Title-->
-        <h4 class="card-title">{{post.title}}</h4>
-        <h5 class="text-muted">By: {{post.first_name|slice:0:8}}</h5>
-        <!--Text-->
-        <p class="card-text">{{post.content|slice:0:250}}</p>
-        <p>{{post.pub_date|date}}</p>
-        <div class="read-more">
-          <a href="#!" class="btn btn-brown" [routerLink]="['/post', post.id]">Read more</a>
+  <div class="row">
+    <div class="col-md-5">
+      <h2 class="text-center mt-5" style="float: right;">
+        <h3><strong>PERSONAL EXPERIENCES</strong></h3>
+      </h2>
+    </div>
+    <div class="col-md-1">
+      <div class="line"></div>
+    </div>
+    <div class="col-md-6 col-sm-1"><a data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+        <h2 class="text-center mt-5" style="float: left;color: black;"><i class="bi bi-cloud-arrow-up"></i>Add Post
+        </h2>
+      </a></div>
+  </div>
+  <div class="row" id="articles-disp">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let post of posts">
+          <div class="card shadow mb-5 bg-white rounded form-card"
+            style="width: 18rem;" id="article-card">
+            <div class="header">
+              <p class="text-center"><strong>{{post.title| titlecase}}</strong></p>
+            </div>
+            <img class="img-fluid" src="http://res.cloudinary.com/burens/{{ post.image }}" id="article-img" alt="...">
+            <time id="img-pos" style="color: gray;">{{post.pub_date|date}}</time>
+            <div class="card__share">
+              <a id="share" class="share-icon"  [routerLink]="['/post', post.id]" style="background-color: rgb(245, 82, 7);color: whitesmoke;"><i class="fas fa-share"></i></a>
+            </div>
+            <div class="card-body">
+              <div class="details-meta">
+                By {{post.first_name|slice:0:10}}&nbsp;<a id="img-loc" style="color: #333;"></a>
+              </div>
+            </div>
+            <p id="img-desc">{{post.content |slice:0:25| titlecase}}</p>
+          </div>
         </div>
       </div>
-      <!--/.Card content-->
     </div>
-    <!--/.Card-->
-  </div>
-</div>
-
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-  tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        “What mental health needs is more sunlight, more candor, and more unashamed conversation.”<br> <strong>Glenn
-          Close</strong>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-          data-bs-dismiss="modal">Add article</button>
-      </div>
+    <div class="col-md-3">
+      <h3 class="underline"><strong>Terms & Conditions</strong></h3>
+      <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Suspendisse ligula massa</li>
+        <li>Donec et egestas elit, in</li>
+        <li>malesuada massa. Suspendisse</li>
+        <li>ultricies fermentum efficitur</li>
+        <li>Lorem ipsum dolor sit amet</li>
+      </ul>
     </div>
   </div>
-</div>
-
-<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-  tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Posts</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="postsform" (ngSubmit)="onSubmit(postsform.value);postsform.reset()" method="POST">
-          <!-- <div *ngFor="let post of posts">
-            <input type="checkbox" id="vehicle1" name="{{article.user}}" value="{{article.user}}">
-            <label for="users">{{post.username}}</label>
-          </div> -->
-
-          <input type="number" class="form-control" ngModel placeholder="post author" formControlName="user"><br>
-          <input type="text" class="form-control" ngModel placeholder="post title" formControlName="title"><br>
-          <input type="text" class="form-control" ngModel placeholder="post content" formControlName="content"><br>
-          <input type="text" class="form-control" ngModel placeholder="post image" formControlName="image"><br>
-          <input type="text" class="form-control" ngModel placeholder="post category" formControlName="category"><br>
-          <button class="btn btn-sm btn-info mt-4" type="submit">Add Post</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
-          data-bs-dismiss="modal">Back to first</button>
+  </div>
+  
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          “What mental health needs is more sunlight, more candor, and more unashamed conversation.”<br> <strong>Glenn
+            Close</strong>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"
+            style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add article</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Article</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="postsform" (ngSubmit)="onSubmit(postsform.value);postsform.reset()" method="POST">
+            <input type="number" class="form-control" ngModel placeholder="post author" formControlName="user"><br>
+            <input type="text" class="form-control" ngModel placeholder="post title" formControlName="title"><br>
+            <input type="text" class="form-control" ngModel placeholder="post content" formControlName="content"><br>
+            <input type="text" class="form-control" ngModel placeholder="post image" formControlName="image"><br>
+            <input type="text" class="form-control" ngModel placeholder="post category" formControlName="category"><br>
+            <button class="btn btn-sm mt-4" type="submit" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add Post</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal"
+            style="background-color: rgb(245, 82, 7);color: whitesmoke;">Back to first</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

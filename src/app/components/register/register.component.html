@@ -1,4 +1,4 @@
-<div class="login-box">
+<div class="login-box mt-5">
   <h2>Register</h2>
   <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
     <div class="form-group user-box">
@@ -13,13 +13,13 @@
       <input type="password" formControlName="password" class="form-control" required="">
       <label for="password">Password</label>
     </div>
-    <p>Already have an account?<a href="login" style="color: black;">login</a></p>
+    <p>Already have an account?<a href="login">login</a></p>
     <a><button type="submit" id="btn">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      <strong>Register</strong>
+      <strong style="color: whitesmoke;">Register</strong>
     </button></a>
   </form>
 </div>

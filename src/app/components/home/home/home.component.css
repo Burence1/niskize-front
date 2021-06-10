@@ -197,8 +197,8 @@ p {
 }
 .hero h1 span {
   font-size: 25px;
-  color: #e8f380;
-  border-bottom: 2px solid #e8f380;
+  color: orange;
+  border-bottom: 2px solid orange;
   padding-bottom: 12px;
   line-height: 3;
 }
@@ -209,7 +209,7 @@ p {
   width: 26px;
   height: 46px;
   border-radius: 13px;
-  border: 2px solid #e8f380;
+  border: 2px solid orange;
   position: absolute;
   bottom: 40px;
   position: absolute;

@@ -22,22 +22,33 @@
       </button>
     </div>
   </div>
-  <h2 class="text-center mt-5">MENTAL HEALTH ARTICLES</h2>
+  <div class="row">
+    <div class="col-md-5">
+      <h2 class="text-center mt-5" style="float: right;"><h3><strong>MENTAL HEALTH ARTICLES</strong></h3></h2>
+    </div>
+    <div class="col-md-1">
+      <div class="line"></div>
+    </div>
+    <div class="col-md-6 col-sm-1"><a data-bs-toggle="modal" href="#exampleModalToggle" role="button"><h2 class="text-center mt-5" style="float: left;color: black;"><i class="bi bi-cloud-arrow-up"></i>Add Article</h2></a></div>
+  </div>
   <div class="row" id="articles-disp">
     <div class="col-md-9">
       <div class="row">
         <div class="col-md-4" *ngFor="let article of articles">
-
-          <div [routerLink]="['/article', article.id]" class="card shadow mb-5 bg-white rounded form-card" style="width: 18rem;">
+          <div class="card shadow mb-5 bg-white rounded form-card" style="width: 18rem;" id="article-card">
+            <div class="header"><p class="text-center"><strong>{{article.title| titlecase}}</strong></p></div>
             <img class="img-fluid" src="http://res.cloudinary.com/burens/{{ article.image }}" id="article-img" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p>By: {{article.username}}</p>
-              <p>Titile: {{article.title}}</p>
-              <p>Content: {{article.content |slice:0:20}}</p>
-              <p>Published on: {{article.pub_date|date}}</p>
-              <p>{{article.category}}</p>
+            <time id="img-pos" style="color: gray;">{{article.pub_date|date}}</time>
+            <div class="card__share">
+              <a id="share" class="share-icon"  [routerLink]="['/article', article.id]"
+                style="background-color: rgb(245, 82, 7);color: whitesmoke;"><i class="fas fa-share"></i></a>
             </div>
+            <div class="card-body">
+              <div class="details-meta">
+                By  {{article.username| titlecase}}&nbsp;<a id="img-loc" style="color: #333;"></a>
+              </div>
+            </div>
+            <p id="img-desc">{{article.content |slice:0:25| titlecase}}</p>
           </div>
         </div>
       </div>
@@ -68,8 +79,8 @@
         “What mental health needs is more sunlight, more candor, and more unashamed conversation.”<br> <strong>Glenn Close</strong>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-          data-bs-dismiss="modal">Add article</button>
+        <button class="btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+          data-bs-dismiss="modal" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add article</button>
       </div>
     </div>
   </div>
@@ -84,34 +95,19 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="articleform" (ngSubmit)="onSubmit(articleform.value);articleform.reset()" method="POST">
-          <div *ngFor="let article of articles">
-          <input type="checkbox" id="vehicle1" name="{{article.user}}" value="{{article.user}}">
-          <label for="users">{{article.username}}</label>
-          </div>
-          <!-- <select id="users" name="users" *ngFor="let article of articles">
-            <option value="{{article.user}}">{{article.user}}</option> -->
-
-
-          <!-- <div class="dropdown" *ngFor="let article of articles">
-            <button class="dropbtn">Dropdown</button>
-            <div class="dropdown-content">
-              <a href="{{article.username}}">{{article.username}}</a>
-              </div>
-          </div> -->
-          
+          <input type="number" class="form-control" ngModel placeholder="article author" formControlName="user"><br>
           <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
           <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
           <input type="text" class="form-control" ngModel placeholder="article content" formControlName="content"><br>
           <input type="text" class="form-control" ngModel placeholder="article image" formControlName="image"><br>
           <input type="text" class="form-control" ngModel placeholder="article category" formControlName="category"><br>
-          <button class="btn btn-sm btn-info mt-4" type="submit">Add Article</button>
+          <button class="btn btn-sm mt-4" type="submit" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Add Article</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
-          data-bs-dismiss="modal">Back to first</button>
+        <button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+          data-bs-dismiss="modal" style="background-color: rgb(245, 82, 7);color: whitesmoke;">Back to first</button>
       </div>
     </div>
   </div>
 </div>
-<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
