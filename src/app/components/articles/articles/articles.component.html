@@ -55,3 +55,63 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        “What mental health needs is more sunlight, more candor, and more unashamed conversation.”<br> <strong>Glenn Close</strong>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+          data-bs-dismiss="modal">Add article</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Article</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="articleform" (ngSubmit)="onSubmit(articleform.value);articleform.reset()" method="POST">
+          <div *ngFor="let article of articles">
+          <input type="checkbox" id="vehicle1" name="{{article.user}}" value="{{article.user}}">
+          <label for="users">{{article.username}}</label>
+          </div>
+          <!-- <select id="users" name="users" *ngFor="let article of articles">
+            <option value="{{article.user}}">{{article.user}}</option> -->
+
+
+          <!-- <div class="dropdown" *ngFor="let article of articles">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+              <a href="{{article.username}}">{{article.username}}</a>
+              </div>
+          </div> -->
+          
+          <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
+          <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
+          <input type="text" class="form-control" ngModel placeholder="article content" formControlName="content"><br>
+          <input type="text" class="form-control" ngModel placeholder="article image" formControlName="image"><br>
+          <input type="text" class="form-control" ngModel placeholder="article category" formControlName="category"><br>
+          <button class="btn btn-sm btn-info mt-4" type="submit">Add Article</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+          data-bs-dismiss="modal">Back to first</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>

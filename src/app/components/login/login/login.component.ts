@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginform: FormGroup;
   isAuthenticated: boolean = false;
+  currentUser:undefined
 
   constructor(private loginservice: AuthService, private route: ActivatedRoute,
     private router: Router) { }
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
         // this.toastr.success('Login successfull');
         this.router.navigate(['home']);
         this.isAuthenticated = true;
-        console.log(response);
+        console.log(data);
       },
       (error) => {
         alert('Login unsuccessfull');

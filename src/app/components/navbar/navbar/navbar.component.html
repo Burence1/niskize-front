@@ -2,11 +2,11 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <div class="logo-wrap" style="margin-left: auto; margin-right: auto;">
-      <a class="nav-link" href="/" style="color: black; font-size:xx-large;"><strong></strong></a>
+      <a class="nav-link" href="/" style="color: black; font-size:xx-large;"><strong>NISKIZE</strong></a>
     </div>
     <div class="d-flex align-items-center">
       <!-- Collapsible wrapper -->
-      <a href="#" data-toggle="modal" data-target="#myModal">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt=""
           loading="lazy" />
       </a>
@@ -16,7 +16,7 @@
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document" style="position: fixed;top: 8%;right: 13%;z-index: 3;">
     <div class="modal-content" style="width: 180%;">
       <div class="modal-header">
@@ -35,6 +35,26 @@
           <li><a style="color: black;"><strong><i class="bi bi-box-arrow-right"
                   style="color: black; margin-right: 1em;"></i>Logout</strong></a></li>
         </ul>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul style="list-style: none;">
+          <li><a href="" data-bs-dismiss="modal" style="text-decoration: none;color: black;" [routerLink]="['/posts']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Posts</a></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 import { ArticlesService } from './../../../services/articles/articles.service';
 import { Articles } from './../../../interfaces/articles';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -9,6 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent implements OnInit {
+
+  articleform = new FormGroup({
+    user:new FormControl(''),
+    title: new FormControl(''),
+    content: new FormControl(''),
+    image: new FormControl(''),
+    category:new FormControl(''),
+  });
 
   articles: Articles[] = [];
   constructor(private articlesservice:ArticlesService) { }
@@ -27,5 +36,12 @@ export class ArticlesComponent implements OnInit {
   }
   ngOnInit(): void {
     this.findArticles()
+  }
+  
+  onSubmit(articles: any) {
+    this.articlesservice.create(articles).subscribe((result) => {
+      console.warn("result", result)
+    })
+    console.warn(articles)
   }
 }

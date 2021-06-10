@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   login(data: { username: string; password: string }) {
-    return this.http.post(this.login_url, data, { withCredentials: true });
+    return this.http.post(this.login_url, data, { withCredentials: false });
   }
 
   register(data: { username: string; email: string; password: string }) {
@@ -24,9 +24,9 @@ export class AuthService {
   }
 
   getUser() {
-    return this.http.get(this.user_url, { withCredentials: true });
+    return this.http.get(this.user_url, { withCredentials: false });
   }
   logout() {
-    return this.http.post(this.logout_url, {}, { withCredentials: true });
+    return this.http.post(this.logout_url, {}, { withCredentials: false });
   }
 }

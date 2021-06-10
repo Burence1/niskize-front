@@ -37,22 +37,72 @@
         </a>
       </div>
       <!--/.Card image-->
-
       <!--Card content-->
       <div class="card-block">
         <!--Title-->
         <h4 class="card-title">{{post.title}}</h4>
         <h5 class="text-muted">By: {{post.first_name|slice:0:8}}</h5>
         <!--Text-->
-        <p class="card-text">{{post.content}}</p>
+        <p class="card-text">{{post.content|slice:0:250}}</p>
         <p>{{post.pub_date|date}}</p>
         <div class="read-more">
           <a href="#!" class="btn btn-brown" [routerLink]="['/post', post.id]">Read more</a>
         </div>
       </div>
       <!--/.Card content-->
-
     </div>
     <!--/.Card-->
   </div>
 </div>
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        “What mental health needs is more sunlight, more candor, and more unashamed conversation.”<br> <strong>Glenn
+          Close</strong>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+          data-bs-dismiss="modal">Add article</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalToggleLabel2">New Posts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="postsform" (ngSubmit)="onSubmit(postsform.value);postsform.reset()" method="POST">
+          <!-- <div *ngFor="let post of posts">
+            <input type="checkbox" id="vehicle1" name="{{article.user}}" value="{{article.user}}">
+            <label for="users">{{post.username}}</label>
+          </div> -->
+
+          <input type="number" class="form-control" ngModel placeholder="post author" formControlName="user"><br>
+          <input type="text" class="form-control" ngModel placeholder="post title" formControlName="title"><br>
+          <input type="text" class="form-control" ngModel placeholder="post content" formControlName="content"><br>
+          <input type="text" class="form-control" ngModel placeholder="post image" formControlName="image"><br>
+          <input type="text" class="form-control" ngModel placeholder="post category" formControlName="category"><br>
+          <button class="btn btn-sm btn-info mt-4" type="submit">Add Post</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+          data-bs-dismiss="modal">Back to first</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
