@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  login_url ='http://127.0.0.1:8000/auth/login/'
-  register_url ='http://127.0.0.1:8000/auth/register/'
-  logout_url ='http://127.0.0.1:8000/auth/logout/'
-  user_url ='http://127.0.0.1:8000/auth/user/'
+  login_url ='https://burens-niskize.herokuapp.com/auth/login/'
+  register_url ='https://burens-niskize.herokuapp.com/auth/register/'
+  logout_url ='https://burens-niskize.herokuapp.com/auth/logout/'
+  user_url ='https://burens-niskize.herokuapp.com/auth/user/'
 
   constructor(private http:HttpClient) { }
 

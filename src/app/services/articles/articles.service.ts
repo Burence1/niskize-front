@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class ArticlesService {
 
-  url ='http://127.0.0.1:8000/api/articles/'
-  update_url ='http://127.0.0.1:8000/api/update/article/'
-  single_url ='http://127.0.0.1:8000/api/article/'
+  url ='https://burens-niskize.herokuapp.com/api/articles/'
+  update_url ='https://burens-niskize.herokuapp.com/api/update/article/'
+  single_url ='https://burens-niskize.herokuapp.com/api/article/'
 
   constructor(private http:HttpClient) { }
 

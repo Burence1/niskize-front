@@ -1,7 +1,9 @@
+import { Comments } from './../../interfaces/comments';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Posts } from './../../interfaces/posts';
 import { Injectable } from '@angular/core';
+
 
 
 @Injectable({
@@ -9,9 +11,13 @@ import { Injectable } from '@angular/core';
 })
 export class PostsService {
 
-  url ='http://127.0.0.1:8000/api/posts/'
-  update_url ='http://127.0.0.1:8000/api/update/post/'
-  single_url ='http://127.0.0.1:8000/api/post/'
+  url ='https://burens-niskize.herokuapp.com/api/posts/'
+  update_url ='https://burens-niskize.herokuapp.com/api/update/post/'
+  single_url ='https://burens-niskize.herokuapp.com/api/post/'
+
+  comment_url ='https://burens-niskize.herokuapp.com/api/comments/'
+  update_commentUrl ='https://burens-niskize.herokuapp.com/api/update/comment/'
+  single_commentUrl ='https://burens-niskize.herokuapp.com/api/comment/'
 
   constructor(private http:HttpClient) { }
 
@@ -31,5 +37,21 @@ export class PostsService {
 
   delete(id: any): Observable<any> {
     return this.http.delete(`${this.update_url}${id}`);
+  }
+  
+  // commenturls
+  singleComment(id: any): Observable<Comments> {
+    return this.http.get(`${this.single_commentUrl}${id}/`);
+  }
+
+  getComments(): Observable<Comments[]> {
+    return this.http.get<Comments[]>(this.comment_url);
+  }
+  updateComment(id: any, comments: Comments) {
+    return this.http.put(`${this.update_commentUrl}${id}/`, comments);
+  }
+
+  deleteComment(id: any): Observable<any> {
+    return this.http.delete(`${this.update_commentUrl}${id}`);
   }
 }

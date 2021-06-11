@@ -1,8 +1,10 @@
+import { Comments } from './../../interfaces/comments';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Posts } from './../../interfaces/posts';
 import { PostsService } from './../../services/posts/posts.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-update-posts',
@@ -20,12 +22,15 @@ export class UpdatePostsComponent implements OnInit {
     pub_date:'',
   };
 
-  commentForm = new FormGroup({
-    comment: new FormControl(''),
-  });
-
+  updatecomment: Comments = {
+    content: '',
+    user: '',
+    pub_date: '',
+    posts:'',
+  };
   posts: Posts[] = [];
   id: any;
+  comments:Comments[]=[];
 
   constructor(private postservice: PostsService, private route: ActivatedRoute,
     private redirect: Router) { }
@@ -42,8 +47,21 @@ export class UpdatePostsComponent implements OnInit {
         });
   }
 
+  getComments(id: string | null) {
+    this.postservice.get(id)
+      .subscribe(
+        data => {
+          this.updatecomment = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
   ngOnInit(): void {
     this.getPost(this.route.snapshot.paramMap.get('id'));
+    this.getComments(this.route.snapshot.paramMap.get('id'));
   }
 
   updatePost(): void {
