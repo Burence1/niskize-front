@@ -16,7 +16,6 @@ export class ArticlesComponent implements OnInit {
     title: new FormControl(''),
     content: new FormControl(''),
     image: new FormControl(''),
-    category:new FormControl(''),
   });
 
   articles: Articles[] = [];

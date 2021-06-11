@@ -97,10 +97,8 @@
         <form [formGroup]="articleform" (ngSubmit)="onSubmit(articleform.value);articleform.reset()" method="POST">
           <input type="number" class="form-control" ngModel placeholder="article author" formControlName="user"><br>
           <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
-          <input type="text" class="form-control" ngModel placeholder="article title" formControlName="title"><br>
           <input type="text" class="form-control" ngModel placeholder="article content" formControlName="content"><br>
           <input type="text" class="form-control" ngModel placeholder="article image" formControlName="image"><br>
-          <input type="text" class="form-control" ngModel placeholder="article category" formControlName="category"><br>
           <button class="btn btn-sm mt-4" type="submit" style="background-color:orange;color: whitesmoke;">Add Article</button>
         </form>
       </div>
